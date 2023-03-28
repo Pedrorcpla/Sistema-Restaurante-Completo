@@ -1,0 +1,952 @@
+* {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+@font-face { 
+    font-family: Futura-Bold;
+    src: url(../fonts/Futura\ Bold\ font.ttf);
+}
+@font-face {
+    font-family: Futura-Light;
+    src: url(../fonts/Futura-CondensedLight.otf);
+}
+@font-face {
+    font-family: Futura-Medium;
+    src: url(../fonts/Futura\ medium\ bt.ttf);
+}
+@font-face {
+    font-family: SpriteGraffiti;
+    src: url(../fonts/SpriteGraffiti-Regular.ttf);
+}
+@font-face {
+    font-family: Poppins-Light;
+    src: url(../fonts/Poppins-Light.ttf);
+}
+@font-face {
+    font-family: Poppins-Medium;
+    src: url(../fonts/Poppins-Medium.ttf);
+}
+
+:root{
+    --background: #FFF3E5;
+    --background-blur: rgba(255, 243, 229, 0.3);
+    --header-background: #201100;
+    --primary-color: #201100;
+    --primary-color-disabled: rgba(32, 17, 0, 0.75);
+    --secoundary-color: #FF8B04;
+    --secoundary-color-disabled: rgba(255, 138, 4, 0.5);
+}
+body {
+    background: var(--secoundary-color-disabled);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+  /* Track */
+::-webkit-scrollbar-track {
+    background: var(--secoundary-color);
+}
+  
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 5px;
+}
+
+/* -------------- Cabeçalho -------------- */
+.header {
+    position: fixed;
+    width: 100%;
+    height: 8vh;
+    background: var(--header-background);
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+.header .container {
+    width: 85%;
+    height: 100%;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+}
+.header .container .logo {
+    height: 6vh;
+    width: 6vh;
+    background: var(--background);
+    border-radius: 6vh;
+}
+.header .container .cartIcon {
+    height: 5vh;
+    width: 4vh;
+    background: none;
+    border: none;
+}
+.header .container .cartIcon:hover {
+    cursor: pointer;
+}
+
+/* -------------- Pagina -------------- */
+.content {
+    margin-top: 8vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--background);
+}
+
+/* -------------- Carrossel -------------- */
+.carousel {
+    width: 100%;
+    height: 30vh;
+    background-image: url(../images/banner1.png);
+    background-size: cover;
+}
+
+/* -------------- Prato do dia -------------- */
+.dishoftheday {
+    width: 85%;
+    height: 30vh;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.dishoftheday .cardDay {
+    width: 100%;
+    height: 85%;
+    border-radius: 5px;
+    border: none;
+    background: var(--primary-color-disabled);
+}
+
+/* -------------- Modelo Linha -------------- */
+.row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+.row p {
+    font-size: 1.3em;
+    font-family: Futura-Bold;
+    letter-spacing: 1px;
+}
+.row .line {
+    width: 60%;
+    height: 2px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* -------------- Cardápio -------------- */
+.options {
+    width: 85%;
+    min-height: 50vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.options .categories {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+    height: 8vh;
+}
+.options .categories button {
+    background: none;
+    font-size: 1.5em;
+    font-family: Futura-Bold;
+    letter-spacing: 1px;
+    grid-column: auto;
+    width: 100%;
+    overflow: hidden;
+}
+.options .categories button:hover {
+    cursor: pointer;
+}
+.actived {
+    color: var(--primary-color);
+    border: none;
+    border-bottom: 2px solid var(--primary-color);
+    padding: 5px 0;
+}
+.disabled {
+    border: none;
+    border-bottom: 2px solid var(--secoundary-color-disabled);
+    color: var(--primary-color-disabled);
+    padding: 5px 0;
+}
+
+.options .cardArea {
+    width: 100%;
+    min-height: 50vh;
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 14vh;
+
+    display:none;
+}
+.options .show {
+    display: grid;
+}
+.options .cardArea .card {
+    grid-column: span 2;
+    width: 100%;
+    height: 13vh;
+    overflow: hidden;
+    border-radius: 5px;
+    border: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.options .cardArea .card:hover {
+    cursor: pointer;
+}
+.options .cardArea .card .img {
+    grid-column: 1;
+    height: 100%;
+    border: 2px solid var(--secoundary-color);
+    border-right: none;
+    border-radius: 5px 0 0 5px;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.options .cardArea .card .img img{
+    height: 95%;
+}
+.options .cardArea .card .data {
+    grid-column: span 2;
+    height: 100%;
+    border: 2px solid var(--primary-color);
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+    box-sizing: border-box;
+    padding-left: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.options .cardArea .card .data #name {
+    font-family: SpriteGraffiti;
+    font-size: 1.7em;
+    width: 90%;
+    text-align: left;
+    overflow: hidden;
+}
+.options .cardArea .card .data #ingredients { 
+    font-family: Poppins-Light;
+    font-size: 1em;
+    line-height: 1.2;
+    width: 90%;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    text-align: left;
+}
+.options .cardArea .card .data .price {
+    font-family: Poppins-Medium;
+    font-size: 1.1em;
+    width: 90%;
+    text-align: right;
+    overflow: hidden;
+}
+
+.modal {
+    position: fixed;
+    height: 92vh;
+    width: 100vw;
+    background: var(--background-blur);
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal #close {
+    background: none;
+    border: none;
+    font-family: Poppins-Medium;
+    font-size: 1.3em;
+    color: var(--primary-color);
+    position: absolute;
+    top: 10px;
+    right: 25px;
+}
+.modal .card {
+    height: 70vh;
+    width: 90vw;
+    background: var(--background);
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    border-radius: 5px;
+    overflow: hidden;
+}
+.modal .card .top {
+    grid-row: span 1;
+    background: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.modal .card .top .area {
+    width: calc(100% - 4px);
+    height: calc(100% - 2px);
+    border: 2px solid var(--background);
+    border-bottom: none;
+    box-sizing: border-box;
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    overflow: hidden;
+}
+.modal .card .top .area h2{
+    font-family: SpriteGraffiti;
+    font-size: 32px;
+    color: var(--secoundary-color);
+}
+.modal .card .top .area .img {
+    width: 80%;
+    height: 75%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal .card .top .area .img img{
+    height: 100%;
+}
+.modal .card .body {
+    grid-row: span 2;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.modal .card .body .area {
+    padding: 5% 10%;
+    width: calc(100% - 4px);
+    height: calc(100% - 2px);
+    border: 2px solid var(--secoundary-color);
+    border-top: none;
+    box-sizing: border-box;
+    border-radius: 0 0 5px 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.modal .card .body .area .data {
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.modal .card .body .area .data h2 {
+    font-size: 1.7em;
+    font-family: Poppins-Medium;
+    color: var(--secoundary-color);
+    overflow: hidden;
+}
+.modal .card .body .area .data p {
+    font-size: 1em;
+    font-family: Poppins-light;
+    overflow: hidden;
+}
+.modal .card .body .area .data .row {
+    overflow: hidden;
+}
+.modal .card .body .area .data .row .line {
+    background: var(--secoundary-color);
+    width: 75%;
+    overflow: hidden;
+}
+.modal .card .body .area .data .row p {
+    color: var(--secoundary-color);
+    overflow: hidden;
+}
+.modal .card .body .area .quantity {
+    height: 15%;
+    display: flex;
+    justify-content: center;
+}
+.modal .card .body .area .quantity p {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3em;
+    font-family: Poppins-Light;
+    border: 2px solid var(--primary-color);
+    border-right: none;
+    border-radius: 5px 0 0 5px;
+    box-sizing: border-box;
+}
+.modal .card .body .area .quantity input {
+    border: 2px solid var(--secoundary-color);
+    border-radius: 0 5px 5px 0;
+    background: var(--secoundary-color-disabled);
+    color: var(--primary-color);
+    font-size: 1.3em;
+    font-family: Poppins-Medium;
+    text-align: center;
+    width: 30%;
+}
+.modal .card .body .area button {
+    height: 20%;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    background: var(--primary-color);
+    color: var(--background);
+    font-family: Poppins-Medium;
+    font-size: 1.3em;
+}
+.modal .card .body .area button:hover {
+    cursor: pointer;
+}
+
+.cart {
+    position: fixed;
+    height: 92vh;
+    width: 100vw;
+    background: var(--background-blur);
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cart #close {
+    background: none;
+    border: none;
+    font-family: Poppins-Medium;
+    font-size: 1.3em;
+    color: var(--primary-color);
+    position: absolute;
+    top: 10px;
+    right: 25px;
+}
+.cart .card {
+    height: 80vh;
+    width: 95vw;
+    background: var(--background);
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    border-radius: 5px;
+    overflow: hidden;
+}
+.cart .card .items {
+    grid-row: span 2;
+    background: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.cart .card .items .area {
+    width: calc(100% - 4px);
+    height: calc(100% - 2px);
+    border: 2px solid var(--background);
+    border-bottom: none;
+    box-sizing: border-box;
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    overflow: hidden;
+}
+.cart .card .items .area p {
+    font-family: Poppins-Medium;
+    font-size: 1.7em;
+    color: var(--secoundary-color);
+}
+.cart .card .items .area .row {
+    width: 90%;
+}
+.cart .card .items .area .row .line {
+    background: var(--secoundary-color);
+    width: 55%;
+}
+.cart .card .items .area .list {
+    height: 80%;
+    width: 90%;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 12vh;
+}
+.cart .card .items .area .list .item {
+    grid-column: span 2;
+    width: calc(100% - 4px);
+    height: 11vh;
+    overflow: hidden;
+    border-radius: 5px;
+    border: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: var(--background);
+    border: 2px solid var(--background);
+}
+.cart .card .items .area .list .item:hover {
+    cursor: pointer;
+}
+.cart .card .items .area .list .item .img {
+    grid-column: 1;
+    height: 100%;
+    border: 2px solid var(--secoundary-color);
+    border-right: none;
+    border-radius: 5px 0 0 5px;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cart .card .items .area .list .item .img img{
+    height: 95%;
+}
+.cart .card .items .area .list .item .data {
+    grid-column: span 2;
+    height: 100%;
+    border: 2px solid var(--primary-color);
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+    box-sizing: border-box;
+    padding-left: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.cart .card .items .area .list .item .data .name {
+    font-family: SpriteGraffiti;
+    font-size: 1.5em;
+    text-align: left;
+    overflow: hidden;
+}
+.cart .card .items .area .list .item .data .bloco {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cart .card .items .area .list .item .data .qtd {
+    font-family: Poppins-Medium;
+    color: var(--primary-color);
+    font-size: 1em;
+    padding: 2% 5%;
+    border-radius: 5px;
+    border: 2px solid var(--secoundary-color);
+    text-align: right;
+    overflow: hidden;
+}
+.cart .card .items .area .list .item .data .price {
+    font-family: Poppins-Medium;
+    color: var(--primary-color);
+    font-size: 1em;
+    text-align: right;
+    overflow: hidden;
+}
+
+.cart .card .datas {
+    grid-row: span 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.cart .card .datas .area {
+    padding: 1% 5%;
+    width: calc(100% - 4px);
+    height: calc(100% - 2px);
+    border: 2px solid var(--secoundary-color);
+    border-top: none;
+    box-sizing: border-box;
+    border-radius: 0 0 5px 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.cart .card .datas .area .retirada {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1em;
+    font-family: Poppins-Light;
+}
+.cart .card .datas .area .retirada .radio {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    overflow: hidden;
+}
+.cart .card .datas .area .retirada .radio label{
+    margin-left: 10px;
+}
+.cart .card .datas .area .address {
+    width: calc(96% - 4px);
+    height: 20%;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    color: var(--primary-color);
+}
+.cart .card .datas .area .row p{
+    font-size: 1.4em;
+    font-family: Poppins-Light;
+}
+.cart .card .datas .area .row .total{
+    font-size: 1em;
+    font-family: Poppins-Medium;
+}
+.cart .card .datas .area .row .line {
+    width: 35%;
+}
+.cart .card .datas .area .troco {
+    height: 20%;
+    font-family: Poppins-Light;
+    border-radius: 5px;
+    font-size: 1em;
+    border: 2px solid var(--secoundary-color);
+}
+.cart .card .datas .area .finish {
+    width: 100%;
+    height: 20%;
+    border: none;
+    border-radius: 5px;
+    background: var(--primary-color);
+    color: var(--background);
+    font-family: Poppins-Medium;
+    font-size: 1.3em
+}
+.cart .card .datas .area .finish:hover {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.formItem {
+    width: 50vw;
+    height: 60vh;
+    padding: 3% 5%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    border: 2px solid #FF8B04;
+    border-radius: 15px;
+}
+
+@media only screen and (min-width: 700px) {
+    .content {
+        margin-top: 8vh;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .carousel {
+        width: 100%;
+        height: 50vh;
+        background-image: url(../images/banner1.png);
+        background-size: cover;
+    }
+    
+    .row .line { 
+        width: 80%;
+    }
+    .dishoftheday {
+        width: 85%;
+        height: 30vw;
+    }
+    .options .cardArea {
+        grid-auto-rows: 16vh;
+    }
+    .options .cardArea .card {
+        grid-column: span 1;
+        height: 14vh;
+        width: 95%;
+    }
+    .options .cardArea .card .data #name {
+        font-family: SpriteGraffiti;
+        font-size: 1.8em;
+        width: 90%;
+        text-align: left;
+        overflow: hidden;
+    }
+    .options .cardArea .card .data #ingredients { 
+        font-family: Poppins-Light;
+        font-size: 1.2em;
+        line-height: 1.2;
+        width: 90%;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;
+        text-align: left;
+    }
+    .options .cardArea .card .data .price {
+        font-family: Poppins-Medium;
+        font-size: 1.1em;
+        width: 90%;
+        text-align: right;
+        overflow: hidden;
+    }
+    .options .cardArea .card .img img{
+        height: 100%;
+    }
+
+    .modal #close {
+        right: 35px;
+    }
+    .modal .card {
+        height: 70vh;
+        width: 90vw;
+        background: var(--background);
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    .modal .card .top {
+        grid-column: span 1;
+        grid-row: span 3;
+        background: var(--primary-color);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .modal .card .top .area {
+        width: calc(100% - 3px);
+        height: calc(100% - 4px);
+        border: 2px solid var(--background);
+        border-right: none;
+        box-sizing: border-box;
+        border-radius: 5px 0 0 5px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        overflow: hidden;
+    }
+    .modal .card .top .area .name{
+        font-size: 2.5em;
+    }
+    .modal .card .body {
+        grid-column: span 2;
+        grid-row: span 3;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .modal .card .body .area {
+        padding: 5% 10%;
+        width: calc(100% - 3px);
+        height: calc(100% - 4px);
+        border: 2px solid var(--secoundary-color);
+        border-left: none;
+        box-sizing: border-box;
+        border-radius: 0 5px 5px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .modal .card .top .area h2{
+        font-family: SpriteGraffiti;
+        font-size: 4em;
+        color: var(--secoundary-color);
+    }
+    .modal .card .top .area .img img{
+        width: 100%;
+    }
+    .modal .card .body .area .data h2 {
+        font-size: 3em;
+        font-family: Poppins-Medium;
+        color: var(--secoundary-color);
+        overflow: hidden;
+    }
+    .modal .card .body .area .data p {
+        font-size: 1.5em;
+        font-family: Poppins-light;
+        overflow: hidden;
+    }
+    .modal .card .body .area .quantity p {
+        width: 70%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.3em;
+        font-family: Poppins-Light;
+        border: 2px solid var(--primary-color);
+        border-right: none;
+        border-radius: 5px 0 0 5px;
+        box-sizing: border-box;
+    }
+    .modal .card .body .area .quantity input {
+        border: 2px solid var(--secoundary-color);
+        border-radius: 0 5px 5px 0;
+        background: var(--secoundary-color-disabled);
+        color: var(--primary-color);
+        font-size: 1.3em;
+        font-family: Poppins-Medium;
+        text-align: center;
+        width: 30%;
+    }
+    .modal .card .body .area button {
+        height: 20%;
+        width: 100%;
+        border-radius: 5px;
+        border: none;
+        background: var(--primary-color);
+        color: var(--background);
+        font-family: Poppins-Medium;
+        font-size: 1.8em;
+    }
+    
+
+    .cart .card {
+        height: 90vh;
+        width: 80vw;
+    }
+    .cart .card .items .area p {
+        font-family: Poppins-Medium;
+        font-size: 1.8em;
+        color: var(--secoundary-color);
+    }
+    .cart .card .items .area .row .line {
+        background: var(--secoundary-color);
+        width: 75%;
+    }
+    .cart .card .items .area .list {
+        height: 80%;
+        width: 90%;
+        overflow-y: scroll;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 12vh;
+    }
+    .cart .card .items .area .list .item {
+        grid-column: span 1;
+        width: 98%;
+    }
+    .cart .card .items .area .list .item .img img{
+        height: 100%;
+    }
+    .cart .card .items .area .list .item .data .name {
+        font-family: SpriteGraffiti;
+        font-size: 1.8em;
+        text-align: left;
+        overflow: hidden;
+    }
+    .cart .card .items .area .list .item .data .bloco {
+        width: 35%;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .cart .card .items .area .list .item .data .bloco .qtd {
+        font-family: Poppins-Medium;
+        color: var(--primary-color);
+        font-size: 1.3em;
+        padding: 2% 5%;
+        border-radius: 5px;
+        border: 2px solid var(--secoundary-color);
+        text-align: right;
+        overflow: hidden;
+    }
+    .cart .card .items .area .list .item .data .price {
+        font-family: Poppins-Medium;
+        color: var(--primary-color);
+        font-size: 1em;
+        padding: 2% 5%;
+        text-align: right;
+        overflow: hidden;
+    }
+    
+    .cart .card .datas {
+        grid-row: span 1;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .cart .card .datas .area {
+        padding: 1% 5%;
+        width: calc(100% - 4px);
+        height: calc(100% - 2px);
+        border: 2px solid var(--secoundary-color);
+        border-top: none;
+        box-sizing: border-box;
+        border-radius: 0 0 5px 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .cart .card .datas .area .retirada {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        font-size: 1.3em;
+        font-family: Poppins-Light;
+    }
+    .cart .card .datas .area .retirada .radio {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .cart .card .datas .area .retirada .radio label{
+        margin-left: 10px;
+    }
+    .cart .card .datas .area .address {
+        width: calc(96% - 4px);
+        height: 20%;
+        font-size: 1.3em;
+        border: 2px solid var(--primary-color);
+        border-radius: 5px;
+        color: var(--primary-color);
+    }
+    .cart .card .datas .area .row p{
+        font-size: 1.5em;
+        font-family: Poppins-Light;
+    }
+    .cart .card .datas .area .row .total{
+        font-size: 1.3em;
+        font-family: Poppins-Medium;
+    }
+    .cart .card .datas .area .row .line {
+        width: 60%;
+    }
+    .cart .card .datas .area .finish {
+        width: 100%;
+        height: 20%;
+        border: none;
+        border-radius: 5px;
+        background: var(--primary-color);
+        color: var(--background);
+        font-family: Poppins-Medium;
+        font-size: 1.7em
+    }
+}
