@@ -25,6 +25,7 @@
         <option value="2">Pastel</option>
         <option value="3">Porções</option>
         <option value="4">Bebidas</option>
+        <option value="5">Refeições</option>
     </select><br>
 
     <button type="submit">Salvar</button>

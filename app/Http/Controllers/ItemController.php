@@ -86,7 +86,7 @@ class ItemController extends Controller
     public function createItem(Request $request)
     {
         $request->validate([
-            "image" => "required|image|mimes:jpeg,png,jpg,gif,svg|max:2048"
+            "image" => "required|image|mimes:jpeg,png,jpg,gif,svg|max:5000"
         ]);
 
         $imageName = time().'.'.$request->image->extension();

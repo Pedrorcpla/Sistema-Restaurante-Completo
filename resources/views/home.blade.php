@@ -12,7 +12,7 @@
         </div>
 
         <button class="cardDay">
-
+            <img src="http://127.0.0.1:8000/images/pratodia.jpg" alt="">
         </button>
     </div>
 
@@ -20,6 +20,7 @@
         <div class="categories">
             <button class="disabled button" id="c1" value="#burger">Burger</button>
             <button class="disabled button" id="c2" value="#pastel">Pastel</button>
+            <button class="disabled button" id="c5" value="#refeicao">Refeições</button>
             <button class="actived button" id="c3" value="#porcoes">Porções</button>
             <button class="disabled button" id="c4" value="#bebidas">Bebidas</button>
         </div>
@@ -47,6 +48,26 @@
         <div class="cardArea" id="pastel">
             @foreach ($items as $item)
                 @if($item->category_id == 2)
+                    <div class="card" id="{{ $item->tag }}">
+                        <div class="img">
+                            <img id="img" src="http://127.0.0.1:8000{{ $item->image_path }}" alt="Image">
+                        </div>
+                        <div class="data">
+                            <h2 id="name">{{ $item->name }}</h2>
+                            <p id="ingredients">{{ $item->ingredients }}</p>
+                            <p class="price">{{ number_format($item->price, 2, '.', '')}}</p>
+                            <input type="hidden" id="price" value="{{ number_format($item->price, 2, '.', '')}}">
+                            <input type="hidden" id="id" value="1">
+                            <input type="hidden" id="category" value="{{ $item->category_id }}">
+                        </div>
+                    </div>
+                @endif
+            @endforeach
+        </div>
+
+        <div class="cardArea" id="refeicao">
+            @foreach ($items as $item)
+                @if($item->category_id == 5)
                     <div class="card" id="{{ $item->tag }}">
                         <div class="img">
                             <img id="img" src="http://127.0.0.1:8000{{ $item->image_path }}" alt="Image">

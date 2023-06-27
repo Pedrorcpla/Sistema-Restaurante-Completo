@@ -39,10 +39,10 @@ Route::delete('/user/{$id}', 'App\Http\Controllers\UserController@deleteUser')->
 /* ---------------------------------------- Item ---------------------------------------- */
 Route::get('/item'                , 'App\Http\Controllers\ItemController@getAllItems')->middleware('auth:sanctum');
 Route::get('/item/{$id}'          , 'App\Http\Controllers\ItemController@getItem')->middleware('auth:sanctum');
-Route::get('/item/category/{$id}' , 'App\Http\Controllers\ItemController@getItemsByCategory')->middleware('auth:sanctum');
+Route::get('/item/category/{id}' , 'App\Http\Controllers\ItemController@getItemsByCategory')->middleware('auth:sanctum');
 Route::post('/item'               , 'App\Http\Controllers\ItemController@createItem')->middleware('auth:sanctum');
-Route::patch('/item/{$id}'        , 'App\Http\Controllers\ItemController@updateItem')->middleware('auth:sanctum');
-Route::delete('/item/{$id}'       , 'App\Http\Controllers\ItemController@deleteItem')->middleware('auth:sanctum');
+Route::patch('/item/{id}'        , 'App\Http\Controllers\ItemController@updateItem')->middleware('auth:sanctum');
+Route::delete('/item/{id}'       , 'App\Http\Controllers\ItemController@deleteItem')->middleware('auth:sanctum');
 
 /* ---------------------------------------- Category ---------------------------------------- */
 Route::get('/category'           , 'App\Http\Controllers\CategoryController@getAllCategory')->middleware('auth:sanctum');
